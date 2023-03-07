@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quotes_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:01:40 by sjhony-x          #+#    #+#             */
-/*   Updated: 2023/03/07 17:01:44 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:47:05 by shelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,25 @@ void	set_special_char(t_data *data, char **args, int x)
 	args[x] = ft_replace_str(args[x], "$?", str_exit_status);
 	free(str_exit_status);
 	free(old_pipeline);
+}
+
+int	is_only_space(const char *characters)
+{
+	int	i;
+
+	i = 0;
+	while (characters[i])
+	{
+		if (!ft_isspace(characters[i]))
+			return (FALSE);
+		i++;
+	}
+	return (TRUE);
+}
+
+void	free_lines_prompt(t_parser *parser_data)
+{
+	free(parser_data->prompt->line);
+	free(parser_data->prompt->pwd);
+	free(parser_data->prompt->prompt_str);
 }

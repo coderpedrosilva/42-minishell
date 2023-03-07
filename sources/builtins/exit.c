@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: progerio <progerio@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:59:11 by progerio          #+#    #+#             */
-/*   Updated: 2023/03/07 16:59:14 by progerio         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:50:21 by shelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	check_exit(char **declar, int declar_len)
 	status_exit = 0;
 	part_of_check_exit(declar, status_exit, declar_len);
 	value = ft_atoi(*(declar + 1));
-	if ((int) value < MININT || (int)value > MAXINT
+	if (value < MININT || value > MAXINT
 		|| ft_strcmp(declar[1], "-9223372036854775808") == 0)
 	{
 		ft_free_tab(declar);

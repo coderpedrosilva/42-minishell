@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:00:02 by sjhony-x          #+#    #+#             */
-/*   Updated: 2023/03/07 17:00:03 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:46:43 by shelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,10 @@ void	run(t_parser *parser_data)
 			free_signal(parser_data);
 			exit(EXIT_SUCCESS);
 		}
-		if (ft_strlen(parser_data->prompt->line) == 0)
+		if (ft_strlen(parser_data->prompt->line) == 0
+			|| is_only_space(parser_data->prompt->line))
 		{
-			free(parser_data->prompt->line);
-			free(parser_data->prompt->pwd);
-			free(parser_data->prompt->prompt_str);
+			free_lines_prompt(parser_data);
 			continue ;
 		}
 		add_history(parser_data->prompt->line);

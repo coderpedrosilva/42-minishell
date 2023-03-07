@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: progerio <progerio@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:56:47 by progerio          #+#    #+#             */
-/*   Updated: 2023/03/07 16:57:42 by progerio         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:46:24 by shelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -340,6 +340,7 @@ void			expander(char **args, t_builtin_vars *builtin_vars,
 int				expand_simple_quotes(char **args, t_builtin_vars *builtin_vars);
 int				expand_double_quotes(char **args, t_builtin_vars *builtin_vars);
 int				get_amount_character(char **args, char character);
+void			free_lines_prompt(t_parser *parser_data);
 
 //quotes
 void			remove_quotes(char **args);
@@ -348,6 +349,7 @@ void			remove_quotes(char **args);
 int				contains_quotes(char *arg);
 void			remove_sides(char quote[], char **args, int x);
 void			set_special_char(t_data *data, char **args, int x);
+int				is_only_space(const char *characters);
 
 //linked list functions
 t_node			*ft_last(t_node *lst);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export_utils_2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: progerio <progerio@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:59:19 by progerio          #+#    #+#             */
-/*   Updated: 2023/03/07 16:59:20 by progerio         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:53:23 by shelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 static void	free_export_data(t_update_export *up_export)
 {
 	free(up_export->tmp1);
+	up_export->tmp1 = NULL;
 	free(up_export->tmp2);
+	up_export->tmp2 = NULL;
 	ft_free_tab(up_export->splitted_args);
 	ft_free_tab(up_export->splitted_ht_search);
 }
