@@ -3,19 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   children_process.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: progerio <progerio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:47:52 by sjhony-x          #+#    #+#             */
-/*   Updated: 2023/03/07 16:47:59 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2023/03/07 23:42:17 by progerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+//alterado
+void	exit_child(int sig)
+{
+	if(sig == SIGINT)
+	{
+		ft_putendl_fd("", STDIN_FILENO);	
+	}
+	if(sig == SIGQUIT)
+	{
+		ft_putendl_fd("Quit", STDIN_FILENO);
+	}
+}
+
 pid_t	create_child_process(void)
 {
 	pid_t	pid;
 
+	signal(SIGINT, exit_child);
+	signal(SIGQUIT, exit_child);
 	pid = fork();
 	if (pid < 0)
 	{
