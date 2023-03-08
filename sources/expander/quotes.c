@@ -6,7 +6,7 @@
 /*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:01:44 by sjhony-x          #+#    #+#             */
-/*   Updated: 2023/03/08 06:38:40 by shelson          ###   ########.fr       */
+/*   Updated: 2023/03/08 06:45:59 by shelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,20 @@ static void	remove_remmaining_quotes(char **args, char *quote, int x)
 	}
 }
 
+static void set_value_if_is_empty(char **args)
+{
+	char	*old;
+
+	if (args[0] == NULL)
+		args[0] = ft_strdup(" ");
+	else if (ft_strcmp(args[0], "") == 0)
+	{
+		old = args[0];
+		args[0] = ft_strdup(" ");
+		free(old);
+	}
+}
+
 void	remove_quotes(char **args)
 {
 	int		x;
@@ -80,6 +94,5 @@ void	remove_quotes(char **args)
 		remove_remmaining_quotes(args, quote, x);
 		x++;
 	}
-	if (args[0] == NULL || ft_strcmp(args[0], "") == 0)
-		args[0] = ft_strdup(" ");
+	set_value_if_is_empty(args);
 }
