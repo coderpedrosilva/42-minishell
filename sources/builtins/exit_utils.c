@@ -40,7 +40,6 @@ void	trated_exits(char **declar, int status_exit, float *value)
 	t_data	*data;
 
 	data = *get_data();
-	
 	if (ft_strcmp(declar[1], "-9223372036854775808") == 0)
 	{
 		ft_free_tab(declar);
