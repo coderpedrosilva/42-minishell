@@ -54,7 +54,7 @@ static void	remove_remmaining_quotes(char **args, char *quote, int x)
 	}
 }
 
-static void set_value_if_is_empty(char **args)
+static void	set_value_if_is_empty(char **args)
 {
 	char	*old;
 

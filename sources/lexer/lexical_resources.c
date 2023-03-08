@@ -41,7 +41,7 @@ int	check_quotes(t_tokenizer *tokenizer)
 		advance(tokenizer);
 		check_quotes(tokenizer);
 		if (!closed)
-			return	(trated_not_closed(tokenizer));
+			return (trated_not_closed(tokenizer));
 		return (true);
 	}
 	return (false);
