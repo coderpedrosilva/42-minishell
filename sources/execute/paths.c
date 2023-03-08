@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   paths.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjhony-x <sjhony-x@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:56:52 by sjhony-x          #+#    #+#             */
-/*   Updated: 2023/03/07 16:56:55 by sjhony-x         ###   ########.fr       */
+/*   Updated: 2023/03/08 10:19:07 by shelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,13 @@ char	**get_paths_cmds(char *env_path)
 	char	**paths;
 
 	sub_path = ft_substr(env_path, 5, ft_strlen(env_path));
-	paths = ft_split(sub_path, ':');
+	if (ft_strchr(sub_path, ':'))
+		paths = ft_split(sub_path, ':');
+	else
+	{
+		paths = ft_calloc(2, sizeof(char *));
+		paths[0] = ft_strdup(env_path);
+	}
 	free(sub_path);
 	return (paths);
 }
