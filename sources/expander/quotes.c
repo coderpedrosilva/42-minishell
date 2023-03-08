@@ -6,7 +6,7 @@
 /*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:01:44 by sjhony-x          #+#    #+#             */
-/*   Updated: 2023/03/08 06:19:40 by shelson          ###   ########.fr       */
+/*   Updated: 2023/03/08 06:38:40 by shelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ void	remove_quotes(char **args)
 		remove_remmaining_quotes(args, quote, x);
 		x++;
 	}
-	if (args[0] == NULL)
+	if (args[0] == NULL || ft_strcmp(args[0], "") == 0)
 		args[0] = ft_strdup(" ");
 }
