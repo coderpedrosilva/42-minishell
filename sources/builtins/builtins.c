@@ -76,10 +76,7 @@ int	handler_builtins(t_data *data)
 	if (ft_strcmp(data->pipeline[0], "env") == 0)
 		exec_env(data);
 	if (ft_strcmp(data->pipeline[0], "exit") == 0)
-	{
-		free_ft_exit(data);
 		ft_exit(data->pipeline);
-	}
 	restore_fd(data, &fd_in, &fd_out);
 	return (1);
 }

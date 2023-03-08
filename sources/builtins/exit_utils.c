@@ -34,3 +34,27 @@ int	check_len(char **declar)
 		len++;
 	return (len - declar);
 }
+
+void	trated_exits(char **declar, int status_exit, float *value)
+{
+	t_data	*data;
+
+	data = *get_data();
+	
+	if (ft_strcmp(declar[1], "-9223372036854775808") == 0)
+	{
+		ft_free_tab(declar);
+		free_ft_exit(data);
+		exit(0);
+	}
+	if (status_exit != -1)
+	{
+		ft_free_tab(declar);
+		free_ft_exit(data);
+	}
+	if (*value == 0)
+	{
+		error_msg(*declar, 2);
+		*value = 2;
+	}
+}

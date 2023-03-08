@@ -195,6 +195,7 @@ char			ft_isunderscore(char c);
 //exit_utils
 char			check_str_nb(char *declar);
 int				check_len(char **declar);
+void			trated_exits(char **declar, int status_exit, float *value);
 
 //utils builtins
 int				get_amount_builtins(t_parser *parser_data);
