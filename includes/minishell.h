@@ -6,7 +6,7 @@
 /*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:56:47 by progerio          #+#    #+#             */
-/*   Updated: 2023/03/07 15:46:24 by shelson          ###   ########.fr       */
+/*   Updated: 2023/03/08 06:30:15 by shelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -318,6 +318,7 @@ void			add_char(t_tokenizer *tokenizer);
 void			skip_space(t_tokenizer *tokenizer);
 void			advance(t_tokenizer *tokenizer);
 int				is_quote(char c);
+int				trated_not_closed(t_tokenizer *tokenizer);
 
 //parser
 void			parser(t_parser *parser);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexical_resources.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: progerio <progerio@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:00:50 by progerio          #+#    #+#             */
-/*   Updated: 2023/03/07 17:00:51 by progerio         ###   ########.fr       */
+/*   Updated: 2023/03/08 06:27:58 by shelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,6 @@ int	is_quote_closed(t_tokenizer *tokenizer, char quote)
 			return (false);
 		add_char(tokenizer);
 		advance(tokenizer);
-	}
-	if (ft_isalnum(tokenizer->content[tokenizer->pos + 1]))
-	{
-		advance(tokenizer);
-		while (ft_isalpha(tokenizer->current_char))
-		{
-			add_char(tokenizer);
-			advance(tokenizer);
-		}
 	}
 	return (true);
 }
@@ -45,14 +36,12 @@ int	check_quotes(t_tokenizer *tokenizer)
 		advance(tokenizer);
 		closed = is_quote_closed(tokenizer, quote);
 		if (!closed)
-		{
-			ft_putendl_fd("Unclosed quotes!", 2);
-			tokenizer->token.type = TK_ERROR;
-			return (true);
-		}
+			return (trated_not_closed(tokenizer));
 		add_char(tokenizer);
 		advance(tokenizer);
 		check_quotes(tokenizer);
+		if (!closed)
+			return	(trated_not_closed(tokenizer));
 		return (true);
 	}
 	return (false);

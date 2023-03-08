@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: progerio <progerio@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:55:23 by progerio          #+#    #+#             */
-/*   Updated: 2023/03/07 16:55:26 by progerio         ###   ########.fr       */
+/*   Updated: 2023/03/07 20:38:18 by shelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	trated_builtin(t_data *data, int fd_out, char **input_cmd, int last)
 	}
 	free(*input_cmd);
 	handler_builtins(data);
-	if (last)
+	if (last || data->parser_data->index == 1)
 		*data->exit_status = 0;
 	return ;
 }
