@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pedro <pedro@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:00:02 by sjhony-x          #+#    #+#             */
-/*   Updated: 2023/03/07 15:46:43 by shelson          ###   ########.fr       */
+/*   Updated: 2023/03/07 21:58:56 by pedro            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ void	free_signal(t_parser *parser)
 
 void	run(t_parser *parser_data)
 {
-	signal(SIGQUIT, SIG_IGN);
-	signal(SIGINT, sighandler);
 	while (true)
 	{	
+		signal(SIGQUIT, SIG_IGN);
+		signal(SIGINT, sighandler);
 		make_prompt_text(parser_data);
 		parser_data->prompt->line = readline(parser_data->prompt->prompt_str);
 		if (parser_data->prompt->line == NULL)
