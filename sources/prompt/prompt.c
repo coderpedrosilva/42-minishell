@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedro <pedro@student.42.fr>                +#+  +:+       +#+        */
+/*   By: shelson <shelson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:00:02 by sjhony-x          #+#    #+#             */
-/*   Updated: 2023/03/07 21:58:56 by pedro            ###   ########.fr       */
+/*   Updated: 2023/03/08 07:10:14 by shelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ void	make_prompt_text(t_parser *parser_data)
 	char	*tmp2;
 	char	*pwd_view;
 
-	parser_data->prompt->text = "\001\e[1m\e[31m\002 🎸MS𝄫: ";
+	parser_data->prompt->text = "\001\e[1m\e[31m\002 🎸MS ";
 	parser_data->prompt->pwd = getcwd(NULL, 0);
 	pwd_view = ft_strrchr(parser_data->prompt->pwd, '/');
 	if (pwd_view == NULL)
 		pwd_view = "\001\e[33m\002 𝟒𝟐⑀⍴";
 	tmp2 = ft_strjoin("\001\e[33m\002", pwd_view);
 	tmp = ft_strjoin(parser_data->prompt->text, tmp2);
-	parser_data->prompt->prompt_str = ft_strjoin(tmp, " 𝟒𝟐⑀⍴≫ \001\033\e[0m\002");
+	parser_data->prompt->prompt_str = ft_strjoin(
+			tmp, "\001\e[1m\e[31m\002 𝄫: \001\033\e[0m\002");
 	free(tmp);
 	free(tmp2);
 }
