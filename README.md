@@ -1,6 +1,6 @@
 # 42-minishell
 
-Esse projeto reproduz em parte o comportamento de um prompt shell, foi realizado em dupla de cadetes. 
+Esse projeto reproduz em parte o comportamento de um prompt shell, foi realizado em dupla. </br> 
 A existência de shells está ligada à própria existência de TI. Antigamente, todos os desenvolvedores concordavam que a comunicação com um computador usando os interruptores 1/0 eram seriamente irritantes. Pela lógica eles tiveram a ideia de criar um software para se comunicar com um computador usando linhas interativas de comandos em uma linguagem um pouco próxima da linguagem humana. Graças ao Minishell, pode-se viajar no tempo e encarar e solucionar os problemas que pessoas enfrentaram quando o Windows não existia.
 
 ## Como compilar e executar o projeto
